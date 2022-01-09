@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<style>
+
+@font-face {
+	font-family: 'SansationLight';
+	src: url('./FontSansationLight/SansationLight.eot');
+	src: local('SansationLight'), url('./FontSansationLight/SansationLight.woff') format('woff'), url('./FontSansationLight/SansationLight.ttf') format('truetype');
+}
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'SansationLight' !important;
+    background: rgb(22,22,22);
+}
+
+/* Style tab links */
+.tablink {
+	font-weight: bold;
+	font-family: 'SansationLight' !important;
+    background-color: #557;
+    color: azure;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 12px;
+    font-size: 17px;
+    width: 12.5%;
+}
+
+.tablink:hover {
+    background-color: #579;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#Clienti {background-color: rgb(22,22,22);}
+#Partide {background-color: rgb(22,22,22);}
+#Comisii {background-color: rgb(22,22,22);}
+#Pontaje {background-color: rgb(22,22,22);}
+</style>
+</head>
+<Title> Adauga Furnizor </Title>
+<body>
+
+  <a href="clienti"><button class="tablink" style=" width:25%">Clienti</button></a>
+  <a href="comanda"><button class="tablink" style="width:25%">Comanda</button></a>
+  <a href="stoc"><button class="tablink" style="width:25%">Stoc</button></a>
+  <a href="furnizori"><button class="tablink" style="background:rgb(70,130,180); color: white; width:25%">Furnizori</button></a>
+
+  <div id="Furnizori" class="tabcontent">
+	<center>
+		  <br>
+  		<h1 id="h3">Adauga Furnizor</h1>
+      <br><br><br>
+      <form class="was-validated" method="POST" action="/addfurnizor">
+        <div class="row", style="width:200%">
+          <div class="col-md-6 mb-3">
+            <label for="validationServer01">Nume Furnizor</label>
+            <input name="nume" type="text" class="form-control is-valid" id="validationServer01" placeholder="Carturesti SRL" required>
+          </div>
+        </div>
+        <br><br>
+        <button class="btn btn-primary" type="submit">Adauga Furnizor</button>
+      </form>
+
+  </center>
+  </div>
+</body>
+</html>

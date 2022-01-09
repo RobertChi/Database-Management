@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+
+@font-face {
+	font-family: 'SansationLight';
+	src: url('./FontSansationLight/SansationLight.eot');
+	src: local('SansationLight'), url('./FontSansationLight/SansationLight.woff') format('woff'), url('./FontSansationLight/SansationLight.ttf') format('truetype');
+}
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'SansationLight' !important;
+    background: rgb(22,22,22);
+}
+
+/* Style tab links */
+.tablink {
+	font-weight: bold;
+	font-family: 'SansationLight' !important;
+    background-color: #557;
+    color: azure;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 12px;
+    font-size: 17px;
+    width: 12.5%;
+}
+
+.tablink:hover {
+    background-color: #579;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-color: white;
+    text-align: center;
+}
+th, td {
+    padding: 15px;
+}
+
+.radiotext {
+    margin: 10px 10px 0px 0px;
+}
+
+</style>
+</head>
+<Title> Furnizor </Title>
+<body>
+
+  <a href="clienti"><button class="tablink" style="width:25%">Clienti</button></a>
+  <a href="comanda"><button class="tablink" style="width:25%">Comanda</button></a>
+  <a href="stoc"><button class="tablink" style="width:25%">Stoc</button></a>
+  <a href="furnizori"><button class="tablink" style="background:rgb(70,130,180); color: white; width:25%">Furnizori</button></a>
+
+  <div id="Furnizor" class="tabcontent">
+	<center>
+		  <br>
+  		<h1 id="h3">Furnizori</h1>
+  		<br><br>
+      <div class="btn-group">
+
+        <a href="addfurnizor"><button type="button" class="btn btn-primary" >Adauga Furnizor</button></a>
+
+        <br>
+		<br>
+
+      </div>
+      <br><br><br><br>
+  		<table style="width:80%">
+  			<tr>
+    			<th>Nr. Curent</th>
+                <th>Nume Furnizor</th>
+    			<th>ID Furnizor</th>
+          <th>Editare/Stergere</th>
+  			</tr>
+            {% for i in furnizori %}
+  			<tr>
+    			<td>{{loop.index}}</td>
+                <td>{{i["nume_furnizor"]}}</td>
+    			<td>{{i["id_furnizor"]}}</td>
+          <td>
+                <form method="POST" action="/getfurnizor">
+                  <button type="submit" name="valoare_buton1" value="{{i['id_furnizor']}}" class="btn btn-primary">Editeaza furnizor</button>
+                </form>
+              <br>
+                <form method="POST" action="/delfurnizor">
+                  <button type="submit" name="valoare_buton" value="{{i['id_furnizor']}}" class="btn btn-primary">Sterge furnizor</button>
+                </form>
+          </td>
+  			</tr>
+            {% endfor %}
+		  </table>
+      <br><br><br>
+    </center>
+  </div>
+
+</body>
+</html>
